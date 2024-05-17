@@ -34,7 +34,7 @@ jobs:
       with:
         name: linux-x64
         path: |
-          ./bin/Release/net8.0/linux-x64/publish/
+          /home/runner/work/Generator/Generator/Generator/bin/Debug/net6.0/
 
   release:
     needs: build
