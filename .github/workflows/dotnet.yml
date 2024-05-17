@@ -1,4 +1,4 @@
-name: .NET Build and Test
+name: dotnet
 
 on:
   push:
@@ -22,10 +22,10 @@ jobs:
         dotnet-version: '6.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore Generator/Generator.csproj
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build Generator/Generator.csproj --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test Generator/Generator.csproj --no-restore --verbosity normal
