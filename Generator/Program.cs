@@ -18,7 +18,7 @@ var scriptJson = JsonConvert.DeserializeObject<ScriptJson>(File.ReadAllText(args
 
 using (var il2cpp = File.OpenRead(args[2]))
 {
-    lines.OfType<PatchLine>().ForEach(x => x.FindPatch(scriptJson, il2cpp, arch));
+    lines.OfType<PatchLine>().ToList().ForEach(x => x.FindPatch(scriptJson, il2cpp, arch));
 }
 
 lines.ForEach(x => Console.WriteLine(x.GetLine(scriptJson)));
