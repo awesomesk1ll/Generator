@@ -22,11 +22,15 @@ namespace Generator.OffsetLines
             {
                 case ScriptSection.ScriptMethod:
                     index = scriptJson.ScriptMethod.FindIndex(x => regex.IsMatch(x.Name));
-                    Offset = scriptJson.ScriptMethod.ElementAt(index).Address;
+                    if (index != -1) {
+                        Offset = scriptJson.ScriptMethod.ElementAt(index).Address;
+                    }
                     break;
                 case ScriptSection.ScriptMetadata:
                     index = scriptJson.ScriptMetadata.FindIndex(x => regex.IsMatch(x.Name));
-                    Offset = scriptJson.ScriptMethod.ElementAt(index).Address;
+                    if (index != -1) {
+                        Offset = scriptJson.ScriptMetadata.ElementAt(index).Address;
+                    }
                     break;
             }
             return index;
